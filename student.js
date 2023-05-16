@@ -38,23 +38,23 @@ function findTopStudents(students, passingmarks) {
 
 console.log(findTopStudents(students, 85));
 
-// function addHobby(student, hobby) {
-//   let studentCheck = students.findIndex(
-//     (students) => students.name === student
-//   );
-//   if (studentCheck !== -1) {
-//     students[studentCheck].hobbies.push(hobby);
-//   }
-// }
-// addHobby("Divya", "painting");
-// //console.log(students);
+function addHobby(student, hobby) {
+  let studentCheck = students.findIndex(
+    (students) => students.name === student
+  );
+  if (studentCheck !== -1) {
+    students[studentCheck].hobbies.push(hobby);
+  }
+}
+addHobby("Divya", "painting");
+//console.log(students);
 
-// function updateStudent(students, name, updatedData) {
-//   return students.map((student) =>
-//     student.name === name ? { ...student, ...updatedData } : student
-//   );
-// }
-// console.log(
+function updateStudent(students, name, updatedData) {
+  return studentcd s.map((student) =>
+    student.name === name ? { ...student, ...updatedData } : student
+  );
+}
+//console.log(
 //   updateStudent(students, "Divya", {
 //     age: 20,
 //     grades: [90, 80, 95],
