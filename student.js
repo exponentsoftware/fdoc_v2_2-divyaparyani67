@@ -23,34 +23,41 @@ const students = [
 ];
 
 function findTopStudents(students, passingmarks) {
- topstudents = [];
- 
+  const topStudents = [];
 
+  students.forEach((student) => {
+    const gradesTotal = student.grades.reduce((acc, grade) => acc + grade, 0);
+    const avgGrade = gradesTotal / student.grades.length;
+
+    if (avgGrade > passingmarks) {
+      topStudents.push(student);
+    }
+  });
+  return topStudents;
 }
 
-findTopStudents(students, 85);
+console.log(findTopStudents(students, 85));
 
-function addHobby(student, hobby) {
-  let studentCheck = students.findIndex(
-    (students) => students.name === student
-  );
-  if (studentCheck !== -1) {
-    students[studentCheck].hobbies.push(hobby);
-  }
-}
-addHobby("Divya", "painting");
-//console.log(students);
+// function addHobby(student, hobby) {
+//   let studentCheck = students.findIndex(
+//     (students) => students.name === student
+//   );
+//   if (studentCheck !== -1) {
+//     students[studentCheck].hobbies.push(hobby);
+//   }
+// }
+// addHobby("Divya", "painting");
+// //console.log(students);
 
-function updateStudent(students, name, updatedData) {
-  return students.map((student) =>
-    student.name === name ? { ...student, ...updatedData } : student
-  );
-}
-
-console.log(
-  updateStudent(students, "Divya", {
-    age: 20,
-    grades: [90, 80, 95],
-    hobbies: ["reading", "painting"],
-  })
-);
+// function updateStudent(students, name, updatedData) {
+//   return students.map((student) =>
+//     student.name === name ? { ...student, ...updatedData } : student
+//   );
+// }
+// console.log(
+//   updateStudent(students, "Divya", {
+//     age: 20,
+//     grades: [90, 80, 95],
+//     hobbies: ["reading", "painting"],
+//   })
+// );
