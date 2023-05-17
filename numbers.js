@@ -30,8 +30,15 @@ function createNumberObjects(numbers) {
 }
 
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-console.log(createNumberObjects(numbers));
+//console.log(createNumberObjects(numbers));
 
+let table = numbers.map((number, key) => {
+  return {
+    number: number,
+    key: number,
+  };
+}); //
+console.log(table);
 
 //refactored code using map method
 // function createNumberObjects(numbers) {

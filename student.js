@@ -10,7 +10,7 @@ const students = [
   {
     name: "Divya",
     age: 25,
-    grades: [60, 40, 86],
+    grades: [88, 85, 90],
     hobbies: ["singing", "dancing"],
   },
 
@@ -22,42 +22,57 @@ const students = [
   },
 ];
 
-function findTopStudents(students, passingmarks) {
-  const topStudents = [];
+let passingmarks = 85;
+let topStudents = students.filter((student) => {
+  const gradesTotal = student.grades.reduce((acc, grade) => acc + grade, 0);
+  const avgGrade = gradesTotal / student.grades.length;
+  return avgGrade > passingmarks;
+});
 
-  students.forEach((student) => {
-    const gradesTotal = student.grades.reduce((acc, grade) => acc + grade, 0);
-    const avgGrade = gradesTotal / student.grades.length;
+console.log(topStudents);
 
-    if (avgGrade > passingmarks) {
-      topStudents.push(student);
-    }
-  });
-  return topStudents;
-}
+// function findTopStudents(students, passingmarks) {
+//   const topStudents = [];
 
-console.log(findTopStudents(students, 85));
+//   students.forEach((student) => {
+//     const gradesTotal = student.grades.reduce((acc, grade) => acc + grade, 0);
+//     const avgGrade = gradesTotal / student.grades.length;
 
-function addHobby(student, hobby) {
-  let studentCheck = students.findIndex(
-    (students) => students.name === student
-  );
-  if (studentCheck !== -1) {
-    students[studentCheck].hobbies.push(hobby);
-  }
-}
-addHobby("Divya", "painting");
-//console.log(students);
+//     if (avgGrade > passingmarks) {
+//       topStudents.push(student);
+//     }
+//   });
+//   return topStudents;
+// }
 
-function updateStudent(students, name, updatedData) {
-  return studentcd s.map((student) =>
-    student.name === name ? { ...student, ...updatedData } : student
-  );
-}
-//console.log(
+// let topstudents = [1, 2, 3,4,5,6,7,8,9];
+// let sum = topstudents.reduce((total, value) => total + value, 1)
+// console.log(sum)
+
+// console.log(findTopStudents(students, 85));
+
+// function addHobby(student, hobby) {
+//   let studentCheck = students.findIndex(
+//     (students) => students.name === student
+//   );
+//   if (studentCheck !== -1) {
+//     students[studentCheck].hobbies.push(hobby);
+//   }
+// }
+// addHobby("Divya", "painting");
+// //console.log(students);
+
+// function updateStudent(students, name, updatedData) {
+//   return students.map((student) =>
+//     student.name === name ? { ...student, ...updatedData } : student
+//   );
+// }
+// console.log(
 //   updateStudent(students, "Divya", {
 //     age: 20,
 //     grades: [90, 80, 95],
 //     hobbies: ["reading", "painting"],
 //   })
 // );
+
+// console.log(students);
